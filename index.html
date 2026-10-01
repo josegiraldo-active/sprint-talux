@@ -424,7 +424,6 @@
       +    listCard('Backlog de QA — HU esperando evaluación', 'Llegaron a QA (IN PR en adelante) pero QA aún no las revisó', (cur.qaBacklog?cur.qaBacklog.items.map(function(it){return {key:it.key, note:it.note, badge:it.status+' · '+it.daysWaiting+' días'};}):[]), 'Sin backlog pendiente.')
       +    listCard('Resolución de hallazgos de QA', 'Qué pasó con cada HU que tuvo defectos', (cur.defects.resolutions?cur.defects.resolutions.map(function(r){return {key:r.key, note:r.note, badge:(r.confirmed?'Confirmado':'Sin confirmar')+' · '+r.status};}):[]), 'Sin hallazgos este sprint.')
       + '  </div>'
-      + (cur.wipNotReachedPR && cur.wipNotReachedPR.count>0 ? listCard('HU que nunca llegaron a PR este sprint', 'No cuentan ni a favor ni en contra bajo la metodología actual — riesgo de quedar fuera del radar', cur.wipNotReachedPR.items.map(function(it){return {key:it.key, note:it.note, badge:it.daysInProgress+' días · '+it.hoursLogged.toFixed(1)+'h'};})) : '')
       + '  <div class="section-title"><h3>Tendencia — '+sprintLabels[0]+' a '+sprintLabels[lastIdx]+'</h3><div class="line"></div></div>'
       + '  <div class="kpis" style="grid-template-columns:repeat(3,1fr);">'
       +      kpi('HU completadas (acumulado)', p.cumulative.huDone, sprintLabels[0]+' a '+sprintLabels[lastIdx])
