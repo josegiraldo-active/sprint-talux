@@ -204,11 +204,26 @@
       { label:'Sprint 8', range:'03–16 sep',      mvp:'MVP2' },
       { label:'Sprint 9', range:'17–30 sep',      mvp:'MVP3' }
     ],
+    /* Vista de proyecto. "Aceptado" = HU cerrada en Done (fecha de resolución de Jira)
+       dentro de la ventana del sprint, sin importar en qué sprint se desarrolló. */
+    project: {
+      // scopeSP: alcance total del MVP en SP. Jira no lo tiene (las HU se crean sprint a
+      // sprint); al definirlo aquí se activan el % de avance y la proyección de cierre.
+      mvp: { name:'MVP3', scopeSP:null, plannedSP:40, acceptedSP:25 },
+      velocityNote:'En Sprint 7 no cerró ninguna HU en Done: todo lo entregado quedó en cola de QA y se aceptó en Sprint 8 y 9.',
+      current: {
+        committedHU:18, committedSP:40, deliveredHU:15, deliveredSP:35, acceptedHU:11, acceptedSP:25,
+        firstPass:{ approved:8, evaluated:15 },
+        carryIn:{ hu:18, sp:39.4, closedHU:15, closedSP:34.1 },
+        carryOut:{ hu:10, sp:20.3, newHU:7, newSP:15, oldHU:3, oldSP:5.3 },
+        findings:{ real:14, scopeChange:4, disputed:7 }
+      }
+    },
     people: {
       miguel: {
         name:'Miguel Antonio Caballero Rivera', role:'Desarrollo', initials:'MC', color:'#4f9dff',
         current:{
-          huDone:9, huTotal:12, spDone:17, spTotal:22, hSp:3.53,
+          huDone:9, huTotal:12, spDone:17, spTotal:22, hSp:3.53, acceptedHU:7, acceptedSP:13,
           capacityNote:'80 h disponibles (sprint completo) = 20 SP al estándar de 4 h/SP. Registró exactamente 80 h entre el 17 y el 30 de septiembre: 60 h en las 9 HU que llegaron a QA y 20 h en las 3 que siguen en desarrollo (TAL-42, TAL-122, TAL-272).',
           defects:{
             total:10, evaluated:9, clean:5, withFindings:4, rate:1.11,
@@ -248,13 +263,13 @@
             'Roster de talento, historial, multas, claims y resumen de pagos de una oferta (Frontend). Rechazada dos veces por QA, sigue en In Review: estas horas pueden subir.'
           ]
         },
-        trend:{ hu:[0,0,8,7,10,11,28,6,9], sp:[0,0,24.8,22.8,16.8,30.4,44.4,16.8,17], hSp:[null,null,2.90,5.09,6.65,3.68,3.72,4.27,3.53], defectRate:[null,null,null,null,null,0.83,1.75,null,1.11] },
+        trend:{ accepted:[0,0,24.8,22.8,16.8,10.4,0,38.0,34.2], hu:[0,0,8,7,10,11,28,6,9], sp:[0,0,24.8,22.8,16.8,30.4,44.4,16.8,17], hSp:[null,null,2.90,5.09,6.65,3.68,3.72,4.27,3.53], defectRate:[null,null,null,null,null,0.83,1.75,null,1.11] },
         note:'primer sprint del MVP3. Miguel llevó a QA 9 de las 12 HU nuevas que trabajó (17 de 22 SP); las 3 restantes (TAL-42, TAL-122, TAL-272) siguen en desarrollo y pasan a Sprint 10. Con 80 h disponibles su capacidad teórica era de 20 SP: entregó 17 SP a QA con 60 h (3.53 h/SP, por debajo del estándar y de su promedio histórico de 4.10) y dedicó las otras 20 h a las HU que no alcanzaron a llegar. QA evaluó las 9: 5 limpias y 4 con hallazgos, 10 defectos válidos en total (1.11 por HU, frente a 1.75 en Sprint 7); la mayor parte viene de TAL-279, rechazada dos veces con 6 hallazgos. TAL-12 y TAL-276 ya fueron corregidas y aprobadas; TAL-279 y TAL-278 siguen abiertas. Además del trabajo nuevo, el sprint arrastró 10 HU suyas del MVP2 (23.2 SP) que ya habían llegado a QA en Sprints 7-8 y no se vuelven a contar aquí: 9 cerraron en Done y TAL-250 (multas por no-show, mobile) sigue en In Progress tras dos rechazos más (22 y 26 sep). El valor de Sprint 8 de la tendencia se reconstruyó desde Jira en este corte (ese sprint no tuvo dashboard propio), así que es aproximado.'
       },
       edwin: {
         name:'Edwin David Rubiano Bacca', role:'Desarrollo', initials:'ER', color:'#7bd0c8',
         current:{
-          huDone:6, huTotal:6, spDone:18, spTotal:18, hSp:3.11,
+          huDone:6, huTotal:6, spDone:18, spTotal:18, hSp:3.11, acceptedHU:4, acceptedSP:12, zeroHourHU:['TAL-271'],
           capacityNote:'56 h disponibles — estuvo en el sprint hasta el viernes 25 de septiembre (7 días hábiles) = 14 SP al estándar de 4 h/SP. Registró exactamente 56 h entre el 17 y el 25 de septiembre, todas en las 6 HU nuevas.',
           defects:{
             total:11, evaluated:6, clean:3, withFindings:3, rate:1.83,
@@ -287,7 +302,7 @@
             'Gestión de multas, pagos y deudas por empresa o persona (Backend). Rechazada por QA con 7 hallazgos que Edwin atribuye a un cambio de alcance.'
           ]
         },
-        trend:{ hu:[0,1,10,8,7,13,18,9,6], sp:[0,2.0,35.2,21.7,18,26.4,25,19.2,18], hSp:[null,4.00,4.11,3.78,4.89,4.85,3.92,5.54,3.11], defectRate:[null,null,null,null,null,0.44,2.0,null,1.83] },
+        trend:{ accepted:[0,2.0,35.2,21.7,18,16.0,0,28.0,27.4], hu:[0,1,10,8,7,13,18,9,6], sp:[0,2.0,35.2,21.7,18,26.4,25,19.2,18], hSp:[null,4.00,4.11,3.78,4.89,4.85,3.92,5.54,3.11], defectRate:[null,null,null,null,null,0.44,2.0,null,1.83] },
         note:'primer sprint del MVP3, con capacidad reducida: Edwin estuvo hasta el viernes 25 de septiembre y cumplió 56 h (capacidad teórica de 14 SP). Aun así llevó a QA sus 6 HU nuevas (18 SP, 100% de lo asignado) con 3.11 h/SP, el valor más bajo de su serie y bien por debajo de su promedio histórico de 4.30 — aunque TAL-271 (3 SP) quedó con 0 h registradas, así que el h/SP real es más alto de lo que muestra Jira. QA evaluó las 6: 3 limpias y 3 con hallazgos, 11 defectos (1.83 por HU, frente a 2.00 en Sprint 7, cuando solo se evaluó 1 HU). Ese número hay que leerlo con cuidado: 7 de los 11 son de TAL-126 y Edwin los atribuye a un alcance retirado (multas a agencias); si QA los descarta al re-evaluar, la tasa baja a 0.67. TAL-271 ya fue corregida y aprobada; TAL-274 y TAL-126 cerraron el sprint en Rejected y pasan a Sprint 10. El sprint también arrastró 8 HU suyas del MVP2 (16.2 SP) ya contadas en Sprints 7-8: 6 cerraron en Done, TAL-114 sigue en In Review sin veredicto y TAL-116 (eventos gratis para agencia nueva, frontend) volvió a In Progress tras dos rechazos (24 y 30 sep). El valor de Sprint 8 de la tendencia se reconstruyó desde Jira en este corte (ese sprint no tuvo dashboard propio), así que es aproximado.'
       },
       qa: {
@@ -320,6 +335,19 @@
       plugins:{ legend:{ labels:{ color:'#e8edf3', usePointStyle:true, boxWidth:8 } } },
       maintainAspectRatio:false
     }, extra||{});
+  }
+
+  // ponytail: umbrales fijos del semáforo (verde/ámbar/rojo); pásalos a DATA si el equipo acuerda otros
+  function light(p, good, warn){ return p>=good ? 'var(--green)' : (p>=warn ? 'var(--amber)' : 'var(--red)'); }
+  function teamAccepted(i){ return +devKeys.reduce((s,k)=>s+DATA.people[k].trend.accepted[i],0).toFixed(1); }
+  // ponytail: velocidad = promedio de los últimos 4 sprints; hazlo configurable si cambia la cadencia
+  function avgAcceptedVelocity(){ const v = sprintLabels.map((_,i)=>teamAccepted(i)).slice(-4); return +(v.reduce((s,x)=>s+x,0)/v.length).toFixed(1); }
+
+  function hSpKpi(label, hSp, zero, base){
+    const warn = zero && zero.length;
+    const color = warn || hSp > DATA.hoursPerSP ? 'var(--amber)' : 'var(--green)';
+    return kpi(label, '<span style="color:'+color+';">'+(hSp!=null?hSp.toFixed(2):'—')+' h/SP</span>',
+      base + (warn ? ' · <span style="color:var(--amber);">⚠ subestimado: '+zero.join(', ')+' sin horas registradas</span>' : ''));
   }
 
   function devColor(v){ return v>0 ? '#ef6a6a' : (v<0 ? '#3ecf8e' : '#546073'); }
@@ -393,7 +421,7 @@
   /* ---------------- render: panel de una persona (miguel/edwin) ---------------- */
   function personPanelHTML(key, active){
     const p = DATA.people[key], cur = p.current;
-    const hSpColor = cur.hSp > DATA.hoursPerSP ? 'var(--amber)' : 'var(--green)';
+    
     return ''
       + '<section class="panel'+(active?' active':'')+'" id="panel-'+key+'">'
       + '  <div class="person-head">'
@@ -402,17 +430,18 @@
       + '  </div>'
       + '  <div class="section-title"><h3>'+sprintLabels[lastIdx]+' ('+DATA.sprints[lastIdx].range+') — desempeño detallado</h3><div class="line"></div></div>'
       + (DATA.methodologyChangeSprint === sprintLabels[lastIdx] ? '  <div class="note" style="border-color:var(--accent);"><b>Nota metodológica (desde '+DATA.methodologyChangeSprint+'):</b> "completada" ahora significa que la HU llegó a QA (estados IN PR, In Review, To Deploy in Prod o Done) — no que esté desplegada. La desviación de estimación usa solo las horas registradas hasta esa primera llegada a QA; las horas de retrabajo logueadas después de un hallazgo de QA se muestran aparte, no se mezclan con la estimación original.</div>' : '')
-      + '  <div class="kpis">'
+      + '  <div class="kpis" style="grid-template-columns:repeat(5,1fr);">'
       +      kpi('HU llegadas a QA', cur.huDone+' <span style="font-size:14px;color:var(--muted);">/ '+cur.huTotal+'</span>', pct(cur.huDone,cur.huTotal)+' de sus HU asignadas')
       +      kpi('SP llegados a QA', cur.spDone+' <span style="font-size:14px;color:var(--muted);">/ '+cur.spTotal+'</span>', pct(cur.spDone,cur.spTotal)+' de sus SP asignados')
-      +      kpi('Horas por punto', '<span style="color:'+hSpColor+';">'+cur.hSp.toFixed(2)+' h/SP</span>', 'Estándar del proyecto: '+DATA.hoursPerSP.toFixed(2)+' h/SP')
+      +      kpi('SP aceptados (Done)', '<span style="color:'+light(cur.acceptedSP/cur.spTotal*100,85,70)+';">'+cur.acceptedSP+'</span> <span style="font-size:14px;color:var(--muted);">/ '+cur.spTotal+'</span>', pct(cur.acceptedSP,cur.spTotal)+' de sus SP · '+cur.acceptedHU+' HU cerradas tras pasar QA')
+      +      hSpKpi('Horas por punto', cur.hSp, cur.zeroHourHU, 'Estándar: '+DATA.hoursPerSP.toFixed(2)+' h/SP')
       +      kpi('Defectos encontrados por QA', cur.defects.total+' <span style="font-size:14px;color:var(--muted);">/ '+cur.defects.evaluated+' HU evaluadas</span>', 'Tasa: '+cur.defects.rate.toFixed(2)+' defectos por HU · '+cur.defects.clean+' aprobadas sin hallazgos')
       + '  </div>'
       + (cur.capacityNote ? '  <div class="note" style="margin-top:8px;"><b>Capacidad del sprint:</b> '+cur.capacityNote+'</div>' : '')
       + (cur.reworkHours > 0 ? '  <div class="note" style="margin-top:8px;"><b>Retrabajo por defectos:</b> '+cur.reworkHours.toFixed(1)+' h registradas tras hallazgos de QA (no incluidas en la desviación de abajo).</div>' : (cur.reworkNote ? '  <div class="note" style="margin-top:8px;"><b>Retrabajo por defectos:</b> '+cur.reworkNote+'</div>' : ''))
       + '  <div class="grid2">'
       + '    <div class="card"><h4>Estado de sus '+cur.huTotal+' HU al cierre del sprint</h4><div class="hint">Estado real de Jira, incluye pendientes de QA</div><div class="chart-box"><canvas id="'+key+'-estado"></canvas></div></div>'
-      + '    <div class="card"><h4>Desviación de estimación por historia</h4><div class="hint">Horas reales (hasta llegar a QA) − horas teóricas (SP × 4), solo HU que llegaron a QA. Pasa el mouse sobre una barra para ver qué funcionalidad es.</div><div class="chart-box"><canvas id="'+key+'-desv"></canvas></div></div>'
+      + '    <div class="card"><h4>Comprometido, entregado a QA y aceptado</h4><div class="hint">SP de sus HU nuevas del sprint · aceptado = cerrado en Done tras pasar QA</div><div class="chart-box"><canvas id="'+key+'-funnel"></canvas></div></div>'
       + '  </div>'
       + '  <div class="section-title"><h3>Cola y riesgos de este sprint</h3><div class="line"></div></div>'
       + '  <div class="kpis" style="grid-template-columns:repeat(3,1fr);">'
@@ -425,14 +454,9 @@
       +    listCard('Resolución de hallazgos de QA', 'Qué pasó con cada HU que tuvo defectos', (cur.defects.resolutions?cur.defects.resolutions.map(function(r){return {key:r.key, note:r.note, badge:(r.confirmed?'Confirmado':'Sin confirmar')+' · '+r.status};}):[]), 'Sin hallazgos este sprint.')
       + '  </div>'
       + '  <div class="section-title"><h3>Tendencia — '+sprintLabels[0]+' a '+sprintLabels[lastIdx]+'</h3><div class="line"></div></div>'
-      + '  <div class="kpis" style="grid-template-columns:repeat(3,1fr);">'
-      +      kpi('HU completadas (acumulado)', p.cumulative.huDone, sprintLabels[0]+' a '+sprintLabels[lastIdx])
-      +      kpi('SP completados (acumulado)', p.cumulative.spDone, sprintLabels[0]+' a '+sprintLabels[lastIdx])
-      +      kpi('Horas por punto (promedio ponderado)', p.cumulative.hSpAvg.toFixed(2)+' h/SP', p.cumulative.hoursTotal.toFixed(1)+' h registradas en total')
-      + '  </div>'
       + '  <div class="grid2">'
-      + '    <div class="card"><h4>HU y SP completados por sprint</h4><div class="hint">Barras: HU (izq.) y SP (der.), sprint a sprint · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hu-sp"></canvas></div></div>'
-      + '    <div class="card"><h4>Horas por punto (h/SP) — tendencia</h4><div class="hint">Línea punteada = estándar fijo del proyecto ('+DATA.hoursPerSP.toFixed(2)+' h/SP) · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hsp"></canvas></div></div>'
+      + '    <div class="card"><h4>HU y SP completados por sprint</h4><div class="hint">Barras: HU (izq.) y SP (der.) entregados · línea verde: SP aceptados (Done) en ese sprint · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hu-sp"></canvas></div></div>'
+      + '    <div class="card"><h4>Horas por punto (h/SP) — tendencia</h4><div class="hint">Referencial: depende de que las horas se registren al día · línea punteada = estándar fijo del proyecto ('+DATA.hoursPerSP.toFixed(2)+' h/SP) · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hsp"></canvas></div></div>'
       + '  </div>'
       + '  <div class="card"><h4>Tasa de defectos por HU evaluada — tendencia</h4><div class="hint">Solo existe desde Sprint 6 (antes no se medía) · sin dato para Sprint 8, que se reconstruyó después sin detalle de defectos</div><div class="chart-box"><canvas id="'+key+'-defectrate"></canvas></div></div>'
       + '</section>';
@@ -445,36 +469,17 @@
       data:{ labels:p.estado.labels, datasets:[{ data:p.estado.data, backgroundColor:p.estado.colors, borderColor:'#161f2c', borderWidth:3 }]},
       options:{ maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ color:'#e8edf3', boxWidth:10, padding:14 } } } }
     });
-    new Chart(document.getElementById(key+'-desv'), {
+    new Chart(document.getElementById(key+'-funnel'), {
       type:'bar',
-      data:{ labels:p.desviacion.labels, datasets:[{ label:'Desviación (h)', data:p.desviacion.data, backgroundColor:function(ctx){ return devColor(ctx.raw); }, borderRadius:6 }]},
-      options: baseAxes({
-        indexAxis:'y',
-        plugins:{
-          legend:{display:false},
-          tooltip:{
-            usePointStyle:false,
-            footerFont:{ style:'normal', size:11 },
-            footerColor:'#c7d2e0',
-            callbacks:{
-              // Título = ticket (ya por defecto); acá solo añadimos qué funcionalidad
-              // representa esa HU, envuelta en varias líneas cortas.
-              footer: function(items){
-                const notes = p.desviacion.notes;
-                if(!notes) return '';
-                const idx = items[0].dataIndex;
-                return notes[idx] ? wrapText(notes[idx]) : '';
-              }
-            }
-          }
-        }
-      })
+      data:{ labels:['Comprometido','Entregado a QA','Aceptado (Done)'], datasets:[{ label:'SP', data:[p.current.spTotal, p.current.spDone, p.current.acceptedSP], backgroundColor:['#546073', p.color, '#3ecf8e'], borderRadius:6, maxBarThickness:70 }]},
+      options: baseAxes({ plugins:{ legend:{display:false} } })
     });
     new Chart(document.getElementById(key+'-hu-sp'), {
       type:'bar',
       data:{ labels:sprintLabels, datasets:[
         { label:'HU completadas', data:p.trend.hu, backgroundColor:p.color, borderRadius:6, maxBarThickness:36, yAxisID:'y' },
-        { label:'SP completados', data:p.trend.sp, backgroundColor:p.color+'99', borderRadius:6, maxBarThickness:36, yAxisID:'y1' }
+        { label:'SP completados', data:p.trend.sp, backgroundColor:p.color+'99', borderRadius:6, maxBarThickness:36, yAxisID:'y1' },
+        { type:'line', label:'SP aceptados (Done)', data:p.trend.accepted, borderColor:'#3ecf8e', backgroundColor:'#3ecf8e', tension:.3, pointRadius:4, yAxisID:'y1' }
       ]},
       options: baseAxes({
         plugins:{ methodologyMarker:{ show:true } },
@@ -549,6 +554,10 @@
 
   /* ---------------- render: panel de Equipo / MVP ---------------- */
   function teamPanelHTML(){
+    const pr = DATA.project, pc = pr.current, fd = pc.findings;
+    const avgVel = avgAcceptedVelocity();
+    const zeroHour = devKeys.reduce((a,k)=>a.concat(DATA.people[k].current.zeroHourHU||[]),[]);
+    const accPct = pc.acceptedSP/pc.committedSP*100, fpPct = pc.firstPass.approved/pc.firstPass.evaluated*100;
     const cumHU = DATA.sprints.reduce((s,_,i)=>s+teamHU(i),0);
     const cumSP = +DATA.sprints.reduce((s,_,i)=>s+teamSP(i),0).toFixed(1);
     const cumHours = DATA.sprints.reduce((s,_,i)=>s+teamHours(i),0);
@@ -571,17 +580,39 @@
     }).join('');
 
     return ''
-      + '<section class="panel" id="panel-equipo">'
+      + '<section class="panel active" id="panel-equipo">'
       + '  <div class="person-head">'
-      + '    <div class="avatar" style="background:var(--purple);">EQ</div>'
-      + '    <div><h2>Equipo — Miguel + Edwin</h2><span>Vista agregada por sprint y por MVP. QA no aporta SP propios — ver su pestaña.</span></div>'
+      + '    <div class="avatar" style="background:var(--purple);">PR</div>'
+      + '    <div><h2>Proyecto — '+pr.mvp.name+'</h2><span>Salud del sprint, velocidad y avance. Equipo de desarrollo: Miguel + Edwin.</span></div>'
       + '  </div>'
-      + '  <div class="section-title"><h3>'+sprintLabels[lastIdx]+' — equipo</h3><div class="line"></div></div>'
+      + '  <div class="section-title"><h3>'+sprintLabels[lastIdx]+' ('+DATA.sprints[lastIdx].range+') — salud del sprint</h3><div class="line"></div></div>'
+      + '  <div class="kpis">'
+      +      kpi('Comprometido', pc.committedSP+' <span style="font-size:14px;color:var(--muted);">SP</span>', pc.committedHU+' HU nuevas planificadas para el sprint')
+      +      kpi('Entregado a QA', pc.deliveredSP+' <span style="font-size:14px;color:var(--muted);">SP · '+pct(pc.deliveredSP,pc.committedSP)+'</span>', pc.deliveredHU+' HU llegaron a revisión de QA')
+      +      kpi('Aceptado (Done)', '<span style="color:'+light(accPct,85,70)+';">'+pc.acceptedSP+'</span> <span style="font-size:14px;color:var(--muted);">SP · '+pct(pc.acceptedSP,pc.committedSP)+'</span>', pc.acceptedHU+' HU cerradas tras pasar QA — lo realmente terminado')
+      +      kpi('Aprobado a la primera', '<span style="color:'+light(fpPct,75,60)+';">'+pct(pc.firstPass.approved,pc.firstPass.evaluated)+'</span>', pc.firstPass.approved+' de '+pc.firstPass.evaluated+' HU evaluadas pasaron QA sin hallazgos')
+      + '  </div>'
+      + '  <div class="kpis" style="margin-top:14px;">'
+      +      kpi('Arrastre que entró', pc.carryIn.sp+' <span style="font-size:14px;color:var(--muted);">SP</span>', pc.carryIn.hu+' HU de sprints anteriores aún sin cerrar · '+pc.carryIn.closedHU+' ('+pc.carryIn.closedSP+' SP) cerraron en este sprint')
+      +      kpi('Arrastre que sale', pc.carryOut.sp+' <span style="font-size:14px;color:var(--muted);">SP</span>', pc.carryOut.hu+' HU pasan al siguiente sprint: '+pc.carryOut.newHU+' nuevas sin aceptar ('+pc.carryOut.newSP+' SP) y '+pc.carryOut.oldHU+' anteriores ('+pc.carryOut.oldSP+' SP)')
+      +      kpi('Velocidad aceptada', avgVel+' <span style="font-size:14px;color:var(--muted);">SP / sprint</span>', 'Promedio de los últimos 4 sprints · este sprint: '+teamAccepted(lastIdx)+' SP (nuevo + arrastre)')
+      +      hSpKpi('Horas por punto (equipo)', teamHSp(lastIdx), zeroHour, teamHours(lastIdx).toFixed(0)+' h en '+(+teamSP(lastIdx).toFixed(1))+' SP entregados a QA · estándar '+DATA.hoursPerSP.toFixed(2))
+      + '  </div>'
+      + '  <div class="grid2" style="margin-top:16px;">'
+      + '    <div class="card"><h4>Velocidad por sprint — entregado a QA vs aceptado</h4><div class="hint">La brecha entre barras es trabajo en cola o rechazado por QA. Aceptado incluye arrastre cerrado en ese sprint; hasta Sprint 5 solo se medía aceptado. '+(pr.velocityNote||'')+'</div><div class="chart-box tall"><canvas id="proyecto-velocidad"></canvas></div></div>'
+      + '    <div class="card"><h4>Hallazgos de QA por tipo — '+sprintLabels[lastIdx]+'</h4><div class="hint">'+(fd.real+fd.scopeChange+fd.disputed)+' hallazgos reportados en las HU nuevas. Los cambios de alcance no son defectos del desarrollo: indican HU que cambiaron después de empezar.</div><div class="chart-box tall"><canvas id="proyecto-hallazgos"></canvas></div></div>'
+      + '  </div>'
+      + '  <div class="section-title"><h3>Avance del '+pr.mvp.name+'</h3><div class="line"></div></div>'
       + '  <div class="kpis" style="grid-template-columns:repeat(3,1fr);">'
-      +      kpi('HU completadas', teamHU(lastIdx), sprintLabels[lastIdx])
-      +      kpi('SP completados', +teamSP(lastIdx).toFixed(1), sprintLabels[lastIdx])
-      +      kpi('Horas por punto', (curHSp!=null?curHSp.toFixed(2):'—')+' h/SP', 'Estándar: '+DATA.hoursPerSP.toFixed(2)+' h/SP')
+      +      (pr.mvp.scopeSP
+               ? kpi('Alcance total', pr.mvp.scopeSP+' <span style="font-size:14px;color:var(--muted);">SP</span>', 'Definido para '+pr.mvp.name)
+                 + kpi('Aceptado', pr.mvp.acceptedSP+' <span style="font-size:14px;color:var(--muted);">SP · '+pct(pr.mvp.acceptedSP,pr.mvp.scopeSP)+'</span>', 'Faltan '+(+(pr.mvp.scopeSP-pr.mvp.acceptedSP).toFixed(1))+' SP')
+                 + kpi('Proyección de cierre', Math.ceil((pr.mvp.scopeSP-pr.mvp.acceptedSP)/avgVel)+' <span style="font-size:14px;color:var(--muted);">sprints más</span>', 'A la velocidad aceptada promedio de '+avgVel+' SP por sprint')
+               : kpi('Alcance total', '<span style="color:var(--amber);">Sin definir</span>', 'No está en Jira: las HU se crean sprint a sprint')
+                 + kpi('Planificado hasta hoy', pr.mvp.plannedSP+' <span style="font-size:14px;color:var(--muted);">SP</span>', 'HU nuevas llevadas a sprint desde que arrancó '+pr.mvp.name)
+                 + kpi('Aceptado', pr.mvp.acceptedSP+' <span style="font-size:14px;color:var(--muted);">SP · '+pct(pr.mvp.acceptedSP,pr.mvp.plannedSP)+' de lo planificado</span>', 'Sin alcance total no hay % de avance real ni proyección de cierre'))
       + '  </div>'
+      + '  <div class="section-title"><h3>Entregado a QA — detalle por persona</h3><div class="line"></div></div>'
       + '  <div class="grid2">'
       + '    <div class="card"><h4>HU y SP por sprint — equipo</h4><div class="hint">Barras apiladas por persona · HU (izq.) y SP (der.)</div><div class="chart-box tall"><canvas id="equipo-hu-sp"></canvas></div></div>'
       + '    <div class="card"><h4>Horas por punto (h/SP) — equipo</h4><div class="hint">Línea punteada = estándar ('+DATA.hoursPerSP.toFixed(2)+' h/SP)</div><div class="chart-box tall"><canvas id="equipo-hsp"></canvas></div></div>'
@@ -600,6 +631,20 @@
 
   function initTeamCharts(){
     const miguel = DATA.people.miguel, edwin = DATA.people.edwin;
+    const mIdx = sprintLabels.indexOf(DATA.methodologyChangeSprint), fd = DATA.project.current.findings;
+    new Chart(document.getElementById('proyecto-velocidad'), {
+      type:'bar',
+      data:{ labels:sprintLabels, datasets:[
+        { label:'Entregado a QA (SP)', data:sprintLabels.map((_,i)=> i<mIdx ? null : +teamSP(i).toFixed(1)), backgroundColor:'#4f9dff99', borderRadius:6, maxBarThickness:30 },
+        { label:'Aceptado — Done (SP)', data:sprintLabels.map((_,i)=>teamAccepted(i)), backgroundColor:'#3ecf8e', borderRadius:6, maxBarThickness:30 }
+      ]},
+      options: baseAxes()
+    });
+    new Chart(document.getElementById('proyecto-hallazgos'), {
+      type:'doughnut',
+      data:{ labels:['Defecto real ('+fd.real+')','Cambio de alcance, descartado ('+fd.scopeChange+')','En disputa por alcance ('+fd.disputed+')'], datasets:[{ data:[fd.real, fd.scopeChange, fd.disputed], backgroundColor:['#ef6a6a','#546073','#f0b53f'], borderColor:'#161f2c', borderWidth:3 }]},
+      options:{ maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ color:'#e8edf3', boxWidth:10, padding:14 } } } }
+    });
     new Chart(document.getElementById('equipo-hu-sp'), {
       type:'bar',
       data:{ labels:sprintLabels, datasets:[
@@ -635,16 +680,16 @@
     miguel:'Miguel C. — Desarrollo',
     edwin:'Edwin R. — Desarrollo',
     qa: DATA.people.qa.tabLabel || (DATA.people.qa.name+' — QA'),
-    equipo:'Equipo / MVP'
+    equipo:'Proyecto'
   };
-  const tabOrder = ['miguel','edwin','qa','equipo'];
+  const tabOrder = ['equipo','miguel','edwin','qa'];
 
   document.getElementById('tabs').innerHTML = tabOrder.map((k,i)=>
     '<button class="tab'+(i===0?' active':'')+'" data-tab="'+k+'">'+tabLabel[k]+'</button>'
   ).join('');
 
   document.getElementById('panels').innerHTML =
-    personPanelHTML('miguel', true) +
+    personPanelHTML('miguel', false) +
     personPanelHTML('edwin', false) +
     qaPanelHTML() +
     teamPanelHTML();
