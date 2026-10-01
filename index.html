@@ -198,185 +198,110 @@
       { label:'Sprint 2', range:'03–17 jun',      mvp:'MVP1' },
       { label:'Sprint 3', range:'18 jun–02 jul',  mvp:'MVP1' },
       { label:'Sprint 4', range:'03–17 jul',      mvp:'MVP1' },
-      { label:'Sprint 5', range:'21 jul–03 ago',  mvp:'MVP1' },
-      { label:'Sprint 6', range:'04–19 ago',      mvp:'MVP1' },
-      { label:'Sprint 7', range:'20 ago–02 sep',  mvp:'MVP1' }
+      { label:'Sprint 5', range:'21 jul–03 ago',  mvp:'MVP2' },
+      { label:'Sprint 6', range:'04–19 ago',      mvp:'MVP2' },
+      { label:'Sprint 7', range:'20 ago–02 sep',  mvp:'MVP2' },
+      { label:'Sprint 8', range:'03–16 sep',      mvp:'MVP2' },
+      { label:'Sprint 9', range:'17–30 sep',      mvp:'MVP3' }
     ],
     people: {
       miguel: {
         name:'Miguel Antonio Caballero Rivera', role:'Desarrollo', initials:'MC', color:'#4f9dff',
         current:{
-          huDone:28, huTotal:28, spDone:44.4, spTotal:44.4, hSp:3.72,
+          huDone:9, huTotal:12, spDone:17, spTotal:22, hSp:3.53,
+          capacityNote:'80 h disponibles (sprint completo) = 20 SP al estándar de 4 h/SP. Registró exactamente 80 h entre el 17 y el 30 de septiembre: 60 h en las 9 HU que llegaron a QA y 20 h en las 3 que siguen en desarrollo (TAL-42, TAL-122, TAL-272).',
           defects:{
-            total:14, evaluated:8, clean:2, withFindings:6, rate:1.75,
+            total:10, evaluated:9, clean:5, withFindings:4, rate:1.11,
             resolutions:[
-              { key:'TAL-251', status:'In Review', confirmed:false, note:'QA (01/09) no pudo completar la validación end-to-end del push porque la oferta de prueba no tenía postulantes disponibles para seleccionar a la talento de prueba. El registro del token FCM sí fue exitoso. No hay comentario de reintento posterior; sigue sin cierre definitivo.' },
-              { key:'TAL-237', status:'TO DEPLOY IN PROD', confirmed:true, note:'QA reportó (❌, 31/08) que el botón de recibo no descargaba el PDF. El 02/09 Miguel Hernández confirmó "✅ Corregido".' },
-              { key:'TAL-236', status:'TO DEPLOY IN PROD', confirmed:true, note:'QA reportó 5 diferencias vs Figma (01/09). Miguel Caballero respondió que 4 fueron decisiones de producto validadas con José David Giraldo (PM), no bugs; la 5ª no se implementó. QA aprobó igual.' },
-              { key:'TAL-235', status:'TO DEPLOY IN PROD', confirmed:true, note:'QA marcó 2 puntos pendientes de confirmar (31/08); el 02/09 confirmó ambos como corregidos.' },
-              { key:'TAL-234', status:'TO DEPLOY IN PROD', confirmed:false, note:'QA reportó (❌, 27/08) 2 elementos faltantes vs Figma. El PM decidió omitir ambos del alcance; QA cerró como "OK con alcance ajustado" sin que el código cambiara.' },
-              { key:'TAL-218', status:'In Review', confirmed:false, note:'QA reportó (❌, 01/09) 3 hallazgos sin resolver en el panel de accounting: falta tipo/referencia del movimiento, campo de multa vacío, fecha inconsistente entre listado y detalle. Sin reverificación posterior.' }
+              { key:'TAL-12',  status:'Done', confirmed:true,  note:'KYB de agencias (Frontend). Rechazada el 24 sep con 2 hallazgos (sin mensaje de error al decidir sin W-9; la agencia verificada seguía limitada a Settings). Re-test del 28 sep: aprobada.' },
+              { key:'TAL-276', status:'Done', confirmed:true,  note:'Aprobar o inactivar personas (Frontend). Rechazada el 28 sep con 2 hallazgos; uno (columna Email en vez de DNI) fue descartado por decisión de negocio del 25 sep, el otro (asistencias vs no-show inconsistentes) quedó cubierto en la aprobación del mismo día.' },
+              { key:'TAL-279', status:'In Review', confirmed:false, note:'Roster, historial y pagos de una oferta (Frontend). Rechazada dos veces (29 y 30 sep): de 6 hallazgos iniciales persisten 4 (KPI No-show contradictorio, estado del roster incoherente, valor técnico "favor_company", enlace a Payments & fines deshabilitado). Pasa a Sprint 10.' },
+              { key:'TAL-278', status:'In Progress', confirmed:false, note:'Panel de documentos legales, comisiones y FAQ (Frontend). Rechazada el 30 sep con 1 hallazgo (la pestaña Talents de Terms & conditions muestra Privacy Policy). Devuelta a desarrollo, pasa a Sprint 10.' }
             ]
           },
           reworkHours:0,
-          reworkNote:'No se pudo aislar horas de retrabajo posteriores a un hallazgo: solo se dispone del tiempo total agregado por ticket, no un desglose de worklogs por fecha. TAL-237 y TAL-235 tuvieron una segunda pasada de QA que confirmó la corrección; TAL-236 se resolvió por decisión de producto, no por cambio de código — en ningún caso es posible atribuir horas específicas a la corrección.',
-          qaBacklog:{
-            pending:20, oldestDays:35,
+          reworkNote:'No se registraron horas adicionales tras los rechazos de QA en TAL-12, TAL-276, TAL-279 y TAL-278: las correcciones de TAL-12 y TAL-276 se hicieron y aprobaron sin tiempo logueado.',
+          qaBacklog:{ pending:0, oldestDays:0, items:[] },
+          wipNotReachedPR:{
+            count:3, oldestDays:5,
             items:[
-              { key:'TAL-215', status:'TO DEPLOY IN PROD', daysWaiting:35, hoursLogged:0, note:'Corregir un mensaje de error mal formulado en un aviso emergente — la más antigua sin evaluar, sin horas logueadas.' },
-              { key:'TAL-219', status:'In Review', daysWaiting:28, hoursLogged:12, note:'Aceptar o rechazar una reserva de agencia (Frontend).' },
-              { key:'TAL-66',  status:'In Review', daysWaiting:28, hoursLogged:12, note:'Aceptar o rechazar una reserva de agencia (Backend).' },
-              { key:'TAL-58',  status:'In Review', daysWaiting:21, hoursLogged:16, note:'Notificaciones push + historial in-app — la HU más grande (6 SP) sin evaluar.' },
-              { key:'TAL-34',  status:'In Review', daysWaiting:21, hoursLogged:28, note:'Completar proceso KYC (Backend) — la que más horas acumula (28h) sin que QA la haya revisado.' },
-              { key:'TAL-207', status:'In Review', daysWaiting:21, hoursLogged:4,  note:'Completar proceso KYC (Frontend).' },
-              { key:'TAL-96',  status:'In Review', daysWaiting:29, hoursLogged:8,  note:'Panel de accounting con historial financiero (Backend).' },
-              { key:'TAL-228', status:'In Review', daysWaiting:9,  hoursLogged:8,  note:'Avisar al talento cuando cambian las condiciones de un evento reservado (Frontend).' },
-              { key:'TAL-98',  status:'In Review', daysWaiting:9,  hoursLogged:4,  note:'Preferencias de notificaciones del talento (Backend).' },
-              { key:'TAL-74',  status:'In Review', daysWaiting:9,  hoursLogged:8,  note:'Avisar al talento cuando cambian las condiciones de un evento reservado (Backend).' },
-              { key:'TAL-72',  status:'In Review', daysWaiting:9,  hoursLogged:4,  note:'Recordatorios de eventos próximos para el talento.' },
-              { key:'TAL-248', status:'In Review', daysWaiting:9,  hoursLogged:4,  note:'Preferencias de notificaciones del talento (Frontend).' },
-              { key:'TAL-245', status:'In Review', daysWaiting:15, hoursLogged:0.25, note:'Corrección de bugs de notificaciones — solo un comentario del PM pidiendo ajuste, sin evidencia de revisión QA.' },
-              { key:'TAL-256', status:'In Review', daysWaiting:1,  hoursLogged:8,  note:'Disputas de talento sobre cobros/penalizaciones (Frontend).' },
-              { key:'TAL-255', status:'In Review', daysWaiting:1,  hoursLogged:8,  note:'Penalización automática por cancelación tardía (Mobile).' },
-              { key:'TAL-92',  status:'In Review', daysWaiting:1,  hoursLogged:8,  note:'Disputas de talento sobre cobros/penalizaciones (Backend).' },
-              { key:'TAL-80',  status:'In Review', daysWaiting:1,  hoursLogged:8,  note:'Penalización automática por cancelación tardía (Backend).' },
-              { key:'TAL-250', status:'In Review', daysWaiting:7,  hoursLogged:8,  note:'Aplicar multas y reembolsar a la agencia cuando el talento no se presenta (Mobile).' },
-              { key:'TAL-249', status:'In Review', daysWaiting:7,  hoursLogged:8,  note:'Aplicar multas y reembolsar a la agencia cuando el talento no se presenta (Backend).' },
-              { key:'TAL-202', status:'Done', daysWaiting:0, hoursLogged:0, note:'Corrección de menú lateral y botón en reclamos — marcado Done sin comentarios ni horas logueadas, sin evidencia de verificación QA.' }
+              { key:'TAL-42',  daysInProgress:5, hoursLogged:4.0, note:'Panel de documentos legales, comisiones/multas y FAQ (Backend) — 1 SP, en desarrollo desde el 25 sep. Su par de frontend (TAL-278) sí llegó a QA.' },
+              { key:'TAL-122', daysInProgress:1, hoursLogged:8.0, note:'Asistencia y no asistencia a eventos por mes (Backend) — iniciada el 29 sep, ya consumió las 8 h estimadas.' },
+              { key:'TAL-272', daysInProgress:1, hoursLogged:8.0, note:'Asistencia y no asistencia a eventos por mes (Frontend) — iniciada el 29 sep, ya consumió las 8 h estimadas.' }
             ]
-          },
-          wipNotReachedPR:{ count:0, oldestDays:0, items:[] }
+          }
         },
-        cumulative:{ huDone:64, spDone:139.2, hSpAvg:4.14, hoursTotal:576.75 },
-        estado:{ labels:['Done (1)','In Review (20)','TO DEPLOY IN PROD (7)'], data:[1,20,7], colors:['#3ecf8e','#f0b53f','#4f9dff'] },
+        cumulative:{ huDone:79, spDone:173.0, hSpAvg:4.10, hoursTotal:708.55 },
+        estado:{ labels:['Done (7)','In Review (1)','In Progress (4)'], data:[7,1,4], colors:['#3ecf8e','#f0b53f','#546073'] },
         desviacion:{
-          labels:['TAL-256','TAL-255','TAL-251','TAL-250','TAL-249','TAL-248','TAL-245','TAL-237','TAL-236','TAL-235','TAL-234','TAL-233','TAL-232','TAL-228','TAL-219','TAL-218','TAL-215','TAL-207','TAL-202','TAL-98','TAL-96','TAL-92','TAL-80','TAL-74','TAL-72','TAL-66','TAL-58','TAL-34'],
-          data:[0,0,0.25,0,0,-0.8,0.25,0.25,2.25,0.25,0.25,0.75,0.75,0,0,-5.6,0,-12,0,-0.8,-1.6,0,0,0,-0.8,0,-8,12],
+          labels:['TAL-100','TAL-278','TAL-12','TAL-106','TAL-108','TAL-275','TAL-276','TAL-277','TAL-279'],
+          data:[-4,-4,0,0,0,0,0,0,0],
           notes:[
-            'Generar disputa con evidencia (Frontend) — aún no evaluada por QA.',
-            'Aplicar penalizaciones por cancelación tardía (Mobile) — aún no evaluada por QA.',
-            'Fix de bugs de TAL-58 — evaluada, validación e2e del push bloqueada por falta de postulantes en la oferta de prueba (no es defecto de código confirmado).',
-            'Aplicar multas por incumplimiento y reembolsar a la agencia (Mobile) — aún no evaluada por QA.',
-            'Aplicar multas por incumplimiento y reembolsar a la agencia (Backend) — aún no evaluada por QA.',
-            'Configurar canales/categorías de notificación (Frontend) — aún no evaluada por QA.',
-            'Fix de bugs de TAL-66 — aún no evaluada por QA (solo comentario del PM pidiendo un ajuste).',
-            'Botón descargar recibo de pago — evaluada, tuvo 1 hallazgo (PDF no descargaba), ya corregido y confirmado.',
-            'Ajuste de diseño Issues & Claims a Figma — evaluada con 5 diferencias reportadas; 4 fueron decisiones de producto validadas con el PM y 1 no se implementó, pero QA aprobó igual.',
-            'Fix del modal "processing payment" en el flujo de reserva — evaluada, 2 puntos pendientes de confirmar, luego confirmados como corregidos.',
-            'Ajuste de diseño del tab reviews de talent profile — evaluada con 2 hallazgos, aprobada tras reducir el alcance (el PM decidió omitirlos, no se corrigieron).',
-            'Ajuste de interfaz de talent profile a Figma — evaluada, limpia sin hallazgos.',
-            'Implementar skeletons en talent profile — evaluada, limpia sin hallazgos.',
-            'Notificar cambios en la publicación de un evento (Frontend) — aún no evaluada por QA.',
-            'Aceptar o rechazar una reserva de agencia (Frontend) — aún no evaluada por QA.',
-            'Panel de accounting con historial de pagos (Frontend) — evaluada con 3 hallazgos claros (falta tipo/referencia, monto vacío, fecha inconsistente); sin corregir aún.',
-            'Fix de mensaje erróneo en un toast — aún no evaluada por QA, sin horas logueadas.',
-            'Proceso KYC para postularse a ofertas (Frontend) — aún no evaluada por QA.',
-            'Fix de sidebar y botón en issues and claims — aún no evaluada por QA pese a estar en Done.',
-            'Configurar canales/categorías de notificación (Backend) — aún no evaluada por QA.',
-            'Panel de accounting con historial de pagos (Backend) — aún no evaluada por QA.',
-            'Generar disputa con evidencia (Backend) — aún no evaluada por QA.',
-            'Aplicar penalizaciones por cancelación tardía (Backend) — aún no evaluada por QA.',
-            'Notificar cambios en la publicación de un evento (Backend) — aún no evaluada por QA.',
-            'Recordatorios de evento próximo — aún no evaluada por QA.',
-            'Aceptar o rechazar una reserva de agencia (Backend) — aún no evaluada por QA.',
-            'Notificaciones push e historial in-app de reservas/pagos/disputas — aún no evaluada por QA.',
-            'Proceso KYC para postularse a ofertas (Backend) — aún no evaluada por QA.'
+            'Roster de talento, historial, multas, claims y resumen de pagos de una oferta (Backend). Aprobada por QA sin hallazgos.',
+            'Panel único de documentos legales, comisiones/multas y FAQ (Frontend). QA la rechazó el 30 sep con 1 hallazgo; volvió a In Progress, estas horas pueden subir.',
+            'Validar identidad y legalidad de la empresa con KYB (Frontend). QA encontró 2 hallazgos, corregidos y aprobados el 28 sep.',
+            'Aprobar o inactivar empresas de forma temporal o definitiva (Backend). Aprobada por QA sin hallazgos.',
+            'Aprobar o inactivar personas de forma temporal o definitiva (Backend). Aprobada por QA sin hallazgos.',
+            'Aprobar o inactivar empresas de forma temporal o definitiva (Frontend). Pasó a Done sin veredicto escrito de QA.',
+            'Aprobar o inactivar personas de forma temporal o definitiva (Frontend). QA reportó 2 hallazgos (1 descartado por negocio), aprobada el 28 sep.',
+            'Validar identidad y legalidad de la empresa con KYB (Backend). Aprobada por QA sin hallazgos.',
+            'Roster de talento, historial, multas, claims y resumen de pagos de una oferta (Frontend). Rechazada dos veces por QA, sigue en In Review: estas horas pueden subir.'
           ]
         },
-        trend:{ hu:[0,0,8,7,10,11,28], sp:[0,0,24.8,22.8,16.8,30.4,44.4], hSp:[null,null,2.90,5.09,6.65,3.68,3.72], defectRate:[null,null,null,null,null,0.83,1.75] },
-        note:'Julian salió del equipo de QA antes de este cierre; desde Sprint 7 quien evalúa es Miguel Hernández (ver pestaña de QA). Miguel Caballero llevó sus 28 HU asignadas a QA (44.4 SP, 100% de lo asignado), con 165h logueadas (≈3.72 h/SP, por debajo del estándar de 4h). Sin embargo solo 8 de esas 28 HU (28.6%) tienen verificación documentada de Miguel Hernández — las 20 restantes forman su backlog de evaluación, con TAL-215 esperando 35 días. De las 8 evaluadas, 6 tuvieron algún hallazgo y solo 2 salieron limpias (1.75 hallazgos por HU evaluada), aunque varios de esos hallazgos (TAL-236, TAL-234) resultaron ser decisiones de producto validadas con el PM y no bugs de código, mientras que TAL-218 sí tiene 3 hallazgos claros aún sin corregir. Su acumulado en 7 sprints (4.14 h/SP) mezcla la definición anterior (Sprint 1-5) con la nueva (Sprint 6-7); tómalo como referencia aproximada.'
+        trend:{ hu:[0,0,8,7,10,11,28,6,9], sp:[0,0,24.8,22.8,16.8,30.4,44.4,16.8,17], hSp:[null,null,2.90,5.09,6.65,3.68,3.72,4.27,3.53], defectRate:[null,null,null,null,null,0.83,1.75,null,1.11] },
+        note:'primer sprint del MVP3. Miguel llevó a QA 9 de las 12 HU nuevas que trabajó (17 de 22 SP); las 3 restantes (TAL-42, TAL-122, TAL-272) siguen en desarrollo y pasan a Sprint 10. Con 80 h disponibles su capacidad teórica era de 20 SP: entregó 17 SP a QA con 60 h (3.53 h/SP, por debajo del estándar y de su promedio histórico de 4.10) y dedicó las otras 20 h a las HU que no alcanzaron a llegar. QA evaluó las 9: 5 limpias y 4 con hallazgos, 10 defectos válidos en total (1.11 por HU, frente a 1.75 en Sprint 7); la mayor parte viene de TAL-279, rechazada dos veces con 6 hallazgos. TAL-12 y TAL-276 ya fueron corregidas y aprobadas; TAL-279 y TAL-278 siguen abiertas. Además del trabajo nuevo, el sprint arrastró 10 HU suyas del MVP2 (23.2 SP) que ya habían llegado a QA en Sprints 7-8 y no se vuelven a contar aquí: 9 cerraron en Done y TAL-250 (multas por no-show, mobile) sigue en In Progress tras dos rechazos más (22 y 26 sep). El valor de Sprint 8 de la tendencia se reconstruyó desde Jira en este corte (ese sprint no tuvo dashboard propio), así que es aproximado.'
       },
       edwin: {
         name:'Edwin David Rubiano Bacca', role:'Desarrollo', initials:'ER', color:'#7bd0c8',
         current:{
-          huDone:18, huTotal:26, spDone:25, spTotal:34, hSp:3.92,
+          huDone:6, huTotal:6, spDone:18, spTotal:18, hSp:3.11,
+          capacityNote:'56 h disponibles — estuvo en el sprint hasta el viernes 25 de septiembre (7 días hábiles) = 14 SP al estándar de 4 h/SP. Registró exactamente 56 h entre el 17 y el 25 de septiembre, todas en las 6 HU nuevas.',
           defects:{
-            total:2, evaluated:1, clean:0, withFindings:1, rate:2.0,
+            total:11, evaluated:6, clean:3, withFindings:3, rate:1.83,
             resolutions:[
-              { key:'TAL-217', status:'Rejected', confirmed:false, note:'Miguel Hernández probó el flujo de postulación desde Mobile (02/09): la postulación se creó bien, pero encontró 2 hallazgos — (1) tras postular, la oferta sigue mostrando "Continue" en vez de "Ya postulado" (reportado como TAL-260); (2) el formulario permite publicar una pregunta vacía en Web (reportado como TAL-258). En vez de reabrir TAL-217, los hallazgos se reportaron en tickets nuevos y el original se marcó "Rejected" al cierre del sprint — léase "evaluado, con hallazgos", no limpio ni confirmado como corregido. (Edwin retomó este ticket el 03/09, ya en Sprint 8, y lo movió hasta "To deploy in staging" — ese avance es posterior al cierre de Sprint 7 y no se cuenta en este reporte.)' }
+              { key:'TAL-271', status:'Done', confirmed:true,  note:'Registros mensuales de empresas y personas por ubicación (Frontend). Rechazada el 24 sep con 1 hallazgo (la tabla de detalle mostraba 5 registros frente a 178 del KPI y el gráfico). Re-test del 29 sep: aprobada.' },
+              { key:'TAL-274', status:'Rejected', confirmed:false, note:'Gestión de multas, pagos y deudas (Frontend). Rechazada el 29 sep con 6 hallazgos; 3 fueron descartados por refinamiento de negocio (columnas ID/User type, KPI Blocked for debt, View receipt). Quedan 3 por corregir: campo Reason sin opciones, botón Assign fine deshabilitado y valores técnicos en la tabla. El rechazo llegó después de su último día en el sprint.' },
+              { key:'TAL-126', status:'Rejected', confirmed:false, note:'Gestión de multas, pagos y deudas (Backend). Rechazada el 30 sep con 7 hallazgos, todos sobre multas a agencias, recibos y bloqueos por deuda. Edwin respondió el mismo día que ese alcance se retiró (solo hay multas a talentos); falta que QA re-evalúe contra el alcance vigente.' }
             ]
           },
           reworkHours:0,
-          reworkNote:'No hay evidencia de horas registradas específicamente después de la verificación de TAL-217 (02/09) dentro del propio Sprint 7; solo se dispone del tiempo total agregado por ticket, no un desglose por fecha. El retrabajo que Edwin sí hizo sobre TAL-217 quedó logueado el 03/09, ya en Sprint 8.',
+          reworkNote:'No se registraron horas tras los hallazgos de QA. La corrección de TAL-271 se aprobó sin tiempo logueado; los rechazos de TAL-274 y TAL-126 llegaron el 29-30 sep, después de su último día en el sprint (25 sep).',
           qaBacklog:{
-            pending:17, oldestDays:28,
+            pending:1, oldestDays:5,
             items:[
-              { key:'TAL-222', status:'TO DEPLOY IN PROD', daysWaiting:28, hoursLogged:4,  note:'Filtrar ofertas por sector (Frontend), lista para desplegar a producción.' },
-              { key:'TAL-54',  status:'TO DEPLOY IN PROD', daysWaiting:28, hoursLogged:4,  note:'Filtrar ofertas por sector (Backend), lista para desplegar a producción.' },
-              { key:'TAL-46',  status:'In Review', daysWaiting:27, hoursLogged:4,  note:'Postularse a una oferta laboral (Backend).' },
-              { key:'TAL-220', status:'In Review', daysWaiting:26, hoursLogged:12, note:'Reporte de cumplimiento de un evento con evidencia fotográfica (Frontend).' },
-              { key:'TAL-102', status:'In Review', daysWaiting:26, hoursLogged:12, note:'Reporte de cumplimiento de un evento con evidencia fotográfica (Backend).' },
-              { key:'TAL-188', status:'In Review', daysWaiting:21, hoursLogged:19, note:'Mensajería (Mobile) — solo hay un checklist de pruebas a evaluar, no una verificación.' },
-              { key:'TAL-76',  status:'In Review', daysWaiting:21, hoursLogged:19, note:'Mensajería (Web) — solo hay un checklist de pruebas a evaluar, no una verificación.' },
-              { key:'TAL-231', status:'In Review', daysWaiting:14, hoursLogged:0.02, note:'Pantalla de ajustes (Settings).' },
-              { key:'TAL-227', status:'In Review', daysWaiting:14, hoursLogged:0, note:'Selector de idioma.' },
-              { key:'TAL-213', status:'In Review', daysWaiting:14, hoursLogged:0.02, note:'Bug: el onboarding redirige a Settings sin dejar completar la verificación.' },
-              { key:'TAL-254', status:'In Review', daysWaiting:9, hoursLogged:4, note:'Cambio de contraseña de talento (Backend).' },
-              { key:'TAL-253', status:'In Review', daysWaiting:9, hoursLogged:4, note:'Cambio de contraseña de talento (Mobile).' },
-              { key:'TAL-224', status:'In Review', daysWaiting:9, hoursLogged:4, note:'Catálogo de FAQ administrable por audiencia (Backend).' },
-              { key:'TAL-130', status:'In Review', daysWaiting:9, hoursLogged:4, note:'Sección de preguntas frecuentes para agencias (Frontend).' },
-              { key:'TAL-104', status:'In Review', daysWaiting:9, hoursLogged:4, note:'Sección de preguntas frecuentes para talentos (Mobile).' },
-              { key:'TAL-239', status:'In Review', daysWaiting:7, hoursLogged:0.02, note:'Al subir el FW9 la empresa debe quedar pendiente, no verificada.' },
-              { key:'TAL-238', status:'In Review', daysWaiting:7, hoursLogged:0.02, note:'Autenticar automáticamente al usuario tras registrarse.' }
-            ]
-          },
-          wipNotReachedPR:{
-            count:8, oldestDays:20,
-            items:[
-              { key:'TAL-243', daysInProgress:20, hoursLogged:0, note:'Bugs backend, sin iniciar (To Do) — 20 días sin moverse.' },
-              { key:'TAL-242', daysInProgress:20, hoursLogged:0, note:'Bugs frontend, sin iniciar (To Do) — 20 días sin moverse.' },
-              { key:'TAL-244', daysInProgress:15, hoursLogged:0, note:'Contenedor de 219 bugs, aún sin desglosar.' },
-              { key:'TAL-252', daysInProgress:8, hoursLogged:12, note:'Compensación al talento si la agencia cancela con poca anticipación (Mobile) — en "In Progress" al cierre, aún sin llegar a PR/QA. (Pasó a IN PR y luego a "To deploy in staging" el 03/09, ya en Sprint 8.)' },
-              { key:'TAL-78',  daysInProgress:8, hoursLogged:12, note:'Compensación al talento si la agencia cancela con poca anticipación (Backend) — en "In Progress" al cierre, aún sin llegar a PR/QA. (Mismo avance posterior al cierre que TAL-252, ya en Sprint 8.)' },
-              { key:'TAL-247', daysInProgress:5, hoursLogged:0, note:'Frontend móvil y web del reporte de cumplimiento de evento (vinculado a TAL-220).' },
-              { key:'TAL-246', daysInProgress:5, hoursLogged:0, note:'Backend del reporte de cumplimiento de evento (vinculado a TAL-102).' },
-              { key:'TAL-257', daysInProgress:2, hoursLogged:0, note:'Cancelar el job completo o el booking de un talento desde el modal de detalle (Frontend) — pasó a "In Progress" el 31/08 pero sin ninguna hora logueada al cierre del sprint; toda su actividad (20h logueadas, avance hasta "To deploy in staging") ocurrió el 02-03/09, después del cierre, ya en Sprint 8.' }
+              { key:'TAL-114', status:'In Review', daysWaiting:5, hoursLogged:8.0, note:'Beneficios económicos al talento por cantidad de bookings (Frontend). Arrastre del MVP2 (se contó en Sprint 8): en In Review desde el 25 sep sin veredicto de QA al cierre.' }
             ]
           }
         },
-        cumulative:{ huDone:57, spDone:128.3, hSpAvg:4.28, hoursTotal:548.57 },
-        estado:{ labels:['In Review (15)','In Progress (6)','TO DEPLOY IN PROD (2)','To Do (2)','Rejected (1)'], data:[15,6,2,2,1], colors:['#f0b53f','#546073','#4f9dff','#8a94a6','#ef6a6a'] },
+        cumulative:{ huDone:72, spDone:165.5, hSpAvg:4.30, hoursTotal:710.97 },
+        estado:{ labels:['Done (4)','Rejected (2)'], data:[4,2], colors:['#3ecf8e','#ef6a6a'] },
         desviacion:{
-          labels:['TAL-254','TAL-253','TAL-239','TAL-238','TAL-231','TAL-227','TAL-224','TAL-222','TAL-220','TAL-217','TAL-213','TAL-188','TAL-130','TAL-104','TAL-102','TAL-76','TAL-54','TAL-46'],
-          data:[0,0,0.02,0.02,0.02,0,0,0,0,-0.8,0.02,-0.2,0,0,0,-0.2,0,-0.8],
+          labels:['TAL-271','TAL-124','TAL-120','TAL-273','TAL-274','TAL-126'],
+          data:[-12,-4,0,0,0,0],
           notes:[
-            'Cambio de contraseña de talento (Backend) — llegó a QA, evaluación pendiente.',
-            'Cambio de contraseña de talento (Mobile) — llegó a QA, evaluación pendiente.',
-            'Al subir el FW9 la empresa debe quedar pendiente, no verificada — llegó a QA, evaluación pendiente.',
-            'Autenticar automáticamente al usuario tras registrarse — llegó a QA, evaluación pendiente.',
-            'Pantalla de ajustes (Settings) — llegó a QA, evaluación pendiente.',
-            'Selector de idioma — llegó a QA, evaluación pendiente.',
-            'Catálogo de FAQ administrable por audiencia (Backend) — llegó a QA, evaluación pendiente.',
-            'Filtrar ofertas por sector (Frontend), lista para desplegar a producción — evaluación pendiente.',
-            'Reporte de cumplimiento de evento con evidencia fotográfica (Frontend) — llegó a QA, evaluación pendiente.',
-            'Postularse a una oferta laboral (Frontend) — evaluada: 2 hallazgos (postulación duplicada y pregunta vacía en el formulario), reportados como TAL-260 y TAL-258 en vez de reabrir este; quedó "Rejected" al cierre, NO está limpia ni confirmada como corregida.',
-            'Bug: onboarding redirige a Settings sin dejar completar la verificación — llegó a QA, evaluación pendiente.',
-            'Mensajería (Mobile) — llegó a QA, evaluación pendiente (solo checklist de pruebas, no verificación).',
-            'Sección de preguntas frecuentes para agencias (Frontend) — llegó a QA, evaluación pendiente.',
-            'Sección de preguntas frecuentes para talentos (Mobile) — llegó a QA, evaluación pendiente.',
-            'Reporte de cumplimiento de evento con evidencia fotográfica (Backend) — llegó a QA, evaluación pendiente.',
-            'Mensajería (Web) — llegó a QA, evaluación pendiente (solo checklist de pruebas, no verificación).',
-            'Filtrar ofertas por sector (Backend), lista para desplegar a producción — evaluación pendiente.',
-            'Postularse a una oferta laboral (Backend) — llegó a QA, evaluación pendiente.'
+            'Registros mensuales de empresas y personas segmentados por ubicación (Frontend). 0 h registradas en Jira para 3 SP: el tiempo real no se logueó, la barra no refleja un ahorro. QA encontró 1 hallazgo, corregido y aprobado el 29 sep.',
+            'Registros mensuales de empresas y personas segmentados por ubicación (Backend). Aprobada por QA sin hallazgos.',
+            'Eventos activos y pasados por sector o agencia (Frontend). Pasó a Done sin veredicto escrito de QA.',
+            'Eventos activos y pasados por sector o agencia (Backend). Aprobada por QA sin hallazgos.',
+            'Gestión de multas, pagos y deudas por empresa o persona (Frontend). Rechazada por QA, 3 hallazgos válidos pendientes de corrección.',
+            'Gestión de multas, pagos y deudas por empresa o persona (Backend). Rechazada por QA con 7 hallazgos que Edwin atribuye a un cambio de alcance.'
           ]
         },
-        trend:{ hu:[0,1,10,8,7,13,18], sp:[0,2.0,35.2,21.7,18,26.4,25], hSp:[null,4.00,4.11,3.78,4.89,4.85,3.92], defectRate:[null,null,null,null,null,0.44,2.0] },
-        note:'Julian salió del equipo de QA antes de este cierre; desde Sprint 7 quien evalúa es Miguel Hernández (ver pestaña de QA). Edwin llegó a QA con 18 de sus 26 HU (25 de 34 SP), con 98.1h logueadas hasta la primera llegada a QA de esas historias — 3.92 h/SP, ligeramente por debajo del estándar del proyecto (el valor de 4.88 h/SP de un cálculo previo incluía por error horas de HU que nunca llegaron a PR; y un re-cierre posterior llegó a 4.00 h/SP por incluir 2h de trabajo que Edwin registró el 03/09, ya en Sprint 8 — ambos corregidos: h/SP usa solo horas de HU completadas, logueadas dentro de la ventana real del sprint). Miguel Hernández solo alcanzó a evaluar 1 de esas 18 HU (TAL-217), dejando 17 pendientes, las más antiguas (TAL-222, TAL-54) esperando 28 días. El único caso evaluado tuvo 2 hallazgos reales reportados como tickets nuevos (TAL-260, TAL-258) en vez de reabrir el original, que quedó "Rejected" al cierre sin una segunda verificación de QA — no está limpio ni confirmado como corregido; una tasa de 2.0 defectos sobre 1 evaluado, muestra demasiado pequeña para sacar conclusiones de calidad. Además, 8 HU (9 SP) nunca llegaron a QA este sprint — TAL-243 y TAL-242 llevan 20 días sin moverse de "To Do", y TAL-257 seguía en "In Progress" sin ninguna hora logueada al cierre (todo su avance — 20h y llegada a "To deploy in staging" — ocurrió el 02-03/09, ya en Sprint 8) — lo que junto al backlog de evaluación sugiere que el cuello de botella está más en la capacidad de QA que en el ritmo de Edwin. Su acumulado en 7 sprints (4.28 h/SP, recalculado con la misma corrección de horas) mezcla la definición anterior con la nueva.\n\nNota de auditoría: un primer re-cierre de este sprint (04/09) había tomado el estado EN VIVO de Jira en vez del estado al momento real de cierre de Sprint 7 (02/09, ~18:24) — como Jira mantiene una historia sin terminar visible en el sprint siguiente hasta que se completa, eso hizo que trabajo de Edwin ya en Sprint 8 (TAL-217, TAL-252, TAL-78, TAL-257, y 1h adicional en TAL-188/TAL-76) se contara por error como parte de Sprint 7. Ya corregido: los valores de esta pestaña reflejan el estado real al cierre.'
+        trend:{ hu:[0,1,10,8,7,13,18,9,6], sp:[0,2.0,35.2,21.7,18,26.4,25,19.2,18], hSp:[null,4.00,4.11,3.78,4.89,4.85,3.92,5.54,3.11], defectRate:[null,null,null,null,null,0.44,2.0,null,1.83] },
+        note:'primer sprint del MVP3, con capacidad reducida: Edwin estuvo hasta el viernes 25 de septiembre y cumplió 56 h (capacidad teórica de 14 SP). Aun así llevó a QA sus 6 HU nuevas (18 SP, 100% de lo asignado) con 3.11 h/SP, el valor más bajo de su serie y bien por debajo de su promedio histórico de 4.30 — aunque TAL-271 (3 SP) quedó con 0 h registradas, así que el h/SP real es más alto de lo que muestra Jira. QA evaluó las 6: 3 limpias y 3 con hallazgos, 11 defectos (1.83 por HU, frente a 2.00 en Sprint 7, cuando solo se evaluó 1 HU). Ese número hay que leerlo con cuidado: 7 de los 11 son de TAL-126 y Edwin los atribuye a un alcance retirado (multas a agencias); si QA los descarta al re-evaluar, la tasa baja a 0.67. TAL-271 ya fue corregida y aprobada; TAL-274 y TAL-126 cerraron el sprint en Rejected y pasan a Sprint 10. El sprint también arrastró 8 HU suyas del MVP2 (16.2 SP) ya contadas en Sprints 7-8: 6 cerraron en Done, TAL-114 sigue en In Review sin veredicto y TAL-116 (eventos gratis para agencia nueva, frontend) volvió a In Progress tras dos rechazos (24 y 30 sep). El valor de Sprint 8 de la tendencia se reconstruyó desde Jira en este corte (ese sprint no tuvo dashboard propio), así que es aproximado.'
       },
       qa: {
-        name:'Miguel Angel Hernández Idarraga', role:'QA', initials:'MH', color:'#a78bfa',
-        tabLabel:'Miguel H. — QA',
+        name:'Miguel Angel Hernández Idarraga', role:'QA', initials:'MH', color:'#a78bfa', tabLabel:'Miguel Hernández — QA',
         qa:{
-          ticket:'TAL-185', ticketLabel:'"Quality Assurance (QA)" · reasignado a Miguel H., no vinculado a "Talux Sprint 7"', hours:null,
-          hoursNote:'El ticket contenedor de horas de QA (TAL-185) fue reasignado de Julian a Miguel Hernández, pero no quedó etiquetado dentro del sprint — por eso no es posible aislar sus horas logueadas específicamente en Sprint 7 desde ese ticket. Su actividad de evaluación sí se puede medir por comentarios de verificación (ver KPIs arriba).',
-          evaluated:9, clean:2, withFindings:7, defectsTotal:16, defectRate:1.78,
-          reviewedRejected:7, rejectedNote:'Miguel: TAL-251 (1), TAL-237 (1), TAL-236 (5), TAL-235 (2), TAL-234 (2), TAL-218 (3). Edwin: TAL-217 (2, reportados como TAL-260 y TAL-258 en vez de reabrirlo).',
+          ticket:'TAL-282', ticketLabel:'"Quality assurance sprint 1 mvp3" · 10 SP', hours:32.0,
+          evaluated:15, clean:8, withFindings:7, defectsTotal:21, defectRate:1.4,
+          reviewedRejected:7, rejectedNote:'TAL-12 (2), TAL-276 (1), TAL-279 (6), TAL-278 (1), TAL-271 (1), TAL-274 (3), TAL-126 (7)',
           backlog:{
-            pending:37, oldestDays:35,
-            note:'37 de las 46 HU que llegaron a QA este sprint (Miguel 20, Edwin 17) siguen sin evaluación al cierre — más de tres cuartas partes del total llegado. La más antigua es TAL-215 de Miguel, esperando 35 días. Este es el primer sprint de Miguel Hernández en el rol: la brecha entre lo que desarrollo lleva a QA (46 HU) y lo que un solo QA nuevo alcanza a evaluar (9 HU) es esperable en una transición, pero vale la pena monitorearla en los próximos cierres — si no se cierra, es una señal de capacidad de QA, no de prioridades mal puestas.'
+            pending:1, oldestDays:5,
+            note:'Las 15 HU nuevas que llegaron a QA este sprint (Miguel 9, Edwin 6) fueron evaluadas antes del cierre: no queda backlog del trabajo nuevo, frente a 37 sin evaluar al cierre de Sprint 7. La única HU en cola es TAL-114 de Edwin, un arrastre del MVP2 que lleva 5 días en In Review sin veredicto. El riesgo ya no está en la cola de evaluación sino en el otro lado: 4 HU nuevas (TAL-279, TAL-278, TAL-274, TAL-126) y 2 arrastres (TAL-250, TAL-116) cerraron el sprint rechazadas y pendientes de corrección.'
           }
         },
-        note:'Julian Andrés Castaño Espinosa salió del equipo de QA antes de este cierre (0 actividad en Jira durante Sprint 7); su historial hasta Sprint 6 queda archivado y ya no tiene pestaña propia en este dashboard. Miguel Angel Hernández Idarraga se incorporó como nuevo QA y este es su primer sprint evaluado: de las 46 HU que Miguel y Edwin llevaron a QA, evaluó 9 (8 de Miguel, 1 de Edwin) — 2 salieron limpias y 7 tuvieron hallazgos, con una tasa de 1.78 defectos por HU evaluada.<br><br>"Evaluada" se infiere de un comentario suyo de verificación QA (con o sin hallazgos) en el ticket; sin ese comentario, una HU que llegó a QA se considera pendiente y no cuenta ni a favor ni en contra. El caso de TAL-217 (Edwin) es particular: encontró 2 hallazgos reales pero los reportó como tickets nuevos (TAL-260, TAL-258) en vez de reabrir el original, que quedó "Rejected" al cierre del sprint — se cuenta como "evaluado con hallazgos", no como limpio, y no hay evidencia de una segunda verificación que confirme la corrección (Edwin sí retomó el ticket el 03/09, pero eso ya es actividad de Sprint 8).<br><br>No fue posible medir sus horas registradas este sprint: el ticket contenedor TAL-185 que se usaba para Julian fue reasignado a Miguel Hernández pero no quedó vinculado a "Talux Sprint 7" en Jira (ver nota junto al KPI de horas). Se recomienda etiquetar explícitamente ese ticket — o uno equivalente — al sprint correspondiente desde el próximo cierre para poder retomar esa métrica.<br><br>El backlog de 37 HU pendientes de evaluación (ver KPI arriba) es, con diferencia, el dato más importante de este cierre: un único QA nuevo no puede absorber el ritmo de entrega de dos developers de inmediato. Vale la pena discutir en retro si se necesita apoyo temporal, priorización explícita de qué evaluar primero, o ajustar expectativas de velocidad de evaluación mientras Miguel Hernández se estabiliza en el rol.'
+        note:'Miguel Hernández es el QA del proyecto desde Sprint 7. Su desempeño se mide sobre las HU nuevas de Miguel Caballero y Edwin que llegaron a QA: de 15 evaluadas, 8 pasaron sin hallazgos y 7 tuvieron defectos (21 en total), una tasa de 1.40 defectos por HU evaluada frente a 1.78 en Sprint 7. Se cuentan solo los hallazgos válidos: los 4 que José David descartó en los comentarios por decisiones de negocio (3 en TAL-274, 1 en TAL-276) quedaron fuera; los 7 de TAL-126 sí se cuentan porque el desarrollador los disputa pero aún no hay re-evaluación.<br><br>"Evaluada" ya no es una inferencia: deja en cada HU un comentario "Verificación QA" con pasos, evidencia y un veredicto explícito (Aprobado / Rechazado / Parcial), y el flujo ahora tiene un estado "Rejected". Solo 2 de las 15 (TAL-275 y TAL-120) pasaron a Done sin veredicto escrito y se cuentan como aprobadas limpias por inferencia. En total dejó 44 comentarios de verificación sobre 32 tickets entre el 17 y el 30 de septiembre, incluyendo los re-tests de las HU y bugs arrastrados del MVP2.<br><br>Registró 32.0 h sobre TAL-282, el contenedor de QA de este sprint (10 SP = 40 h teóricas), más 4.0 h el 17 sep sobre TAL-262, el contenedor del sprint anterior. Como no tiene story points de entregable propio, no hay gráficos de tendencia de HU/SP para su pestaña.'
       }
     }
   };
@@ -483,6 +408,7 @@
       +      kpi('Horas por punto', '<span style="color:'+hSpColor+';">'+cur.hSp.toFixed(2)+' h/SP</span>', 'Estándar del proyecto: '+DATA.hoursPerSP.toFixed(2)+' h/SP')
       +      kpi('Defectos encontrados por QA', cur.defects.total+' <span style="font-size:14px;color:var(--muted);">/ '+cur.defects.evaluated+' HU evaluadas</span>', 'Tasa: '+cur.defects.rate.toFixed(2)+' defectos por HU · '+cur.defects.clean+' aprobadas sin hallazgos')
       + '  </div>'
+      + (cur.capacityNote ? '  <div class="note" style="margin-top:8px;"><b>Capacidad del sprint:</b> '+cur.capacityNote+'</div>' : '')
       + (cur.reworkHours > 0 ? '  <div class="note" style="margin-top:8px;"><b>Retrabajo por defectos:</b> '+cur.reworkHours.toFixed(1)+' h registradas tras hallazgos de QA (no incluidas en la desviación de abajo).</div>' : (cur.reworkNote ? '  <div class="note" style="margin-top:8px;"><b>Retrabajo por defectos:</b> '+cur.reworkNote+'</div>' : ''))
       + '  <div class="grid2">'
       + '    <div class="card"><h4>Estado de sus '+cur.huTotal+' HU al cierre del sprint</h4><div class="hint">Estado real de Jira, incluye pendientes de QA</div><div class="chart-box"><canvas id="'+key+'-estado"></canvas></div></div>'
@@ -509,7 +435,7 @@
       + '    <div class="card"><h4>HU y SP completados por sprint</h4><div class="hint">Barras: HU (izq.) y SP (der.), sprint a sprint · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hu-sp"></canvas></div></div>'
       + '    <div class="card"><h4>Horas por punto (h/SP) — tendencia</h4><div class="hint">Línea punteada = estándar fijo del proyecto ('+DATA.hoursPerSP.toFixed(2)+' h/SP) · línea ámbar = inicio de la nueva metodología</div><div class="chart-box tall"><canvas id="'+key+'-hsp"></canvas></div></div>'
       + '  </div>'
-      + '  <div class="card"><h4>Tasa de defectos por HU evaluada — tendencia</h4><div class="hint">Solo existe desde Sprint 6 (antes no se medía); se irá completando sprint a sprint</div><div class="chart-box"><canvas id="'+key+'-defectrate"></canvas></div></div>'
+      + '  <div class="card"><h4>Tasa de defectos por HU evaluada — tendencia</h4><div class="hint">Solo existe desde Sprint 6 (antes no se medía) · sin dato para Sprint 8, que se reconstruyó después sin detalle de defectos</div><div class="chart-box"><canvas id="'+key+'-defectrate"></canvas></div></div>'
       + '  <div class="note"><b>Lectura individual:</b> '+p.note+'</div>'
       + '</section>';
   }
@@ -588,7 +514,7 @@
     const p = DATA.people.qa, qa = p.qa;
     const hasQaVelocity = qa.evaluated !== undefined;
     const hoursDisplay = (qa.hours != null) ? (qa.hours.toFixed(1)+' h') : 'No disponible';
-    const hoursSub = (qa.hours != null) ? 'Sobre el contenedor transversal, en curso' : (qa.hoursNote || 'Sin datos para este sprint');
+    const hoursSub = (qa.hours != null) ? 'Sobre el contenedor de QA del sprint' : (qa.hoursNote || 'Sin datos para este sprint');
     return ''
       + '<section class="panel" id="panel-qa">'
       + '  <div class="person-head">'
@@ -611,7 +537,7 @@
         + '  </div>'
         + '  <div class="note" style="margin-top:8px;"><b>Backlog de evaluación:</b> '+qa.backlog.note+'</div>'
         : '')
-      + '  <div class="section-title"><h3>Contenedor transversal ('+sprintLabels[0]+'–'+sprintLabels[lastIdx]+')</h3><div class="line"></div></div>'
+      + '  <div class="section-title"><h3>Contenedor de QA — '+sprintLabels[lastIdx]+'</h3><div class="line"></div></div>'
       + '  <div class="kpis" style="grid-template-columns:repeat(3,1fr);">'
       +      kpi('HU de entregable propio', 0, 'Su único ticket es transversal')
       +      kpi('Ticket transversal', qa.ticket, qa.ticketLabel)
@@ -670,7 +596,7 @@
       + '  </div>'
       + '  <div class="section-title"><h3>Por MVP</h3><div class="line"></div></div>'
       + '  <div class="grid2">'+mvpCards+'</div>'
-      + '  <div class="note">Todos los sprints registrados hoy pertenecen a MVP1. Al cerrar el primer sprint de MVP2, añade su entrada en <code>DATA.sprints</code> con <code>mvp:&quot;MVP2&quot;</code> (y los valores correspondientes en cada <code>trend</code>) — esta vista separará los totales automáticamente, sin tocar el HTML.</div>'
+      + '  <div class="note">MVP1 = Sprints 1-4, MVP2 = Sprints 5-8, MVP3 arranca en Sprint 9 (según los contenedores de gestión, arquitectura y QA de Jira). Sprint 8 no tuvo dashboard propio y se reconstruyó desde Jira al cierre de Sprint 9: cuenta las HU cuya última hora de desarrollo antes de la primera revisión de QA cayó en ese sprint, más las 3 que el dashboard de Sprint 7 dejó sin llegar a PR.</div>'
       + '</section>';
   }
 
